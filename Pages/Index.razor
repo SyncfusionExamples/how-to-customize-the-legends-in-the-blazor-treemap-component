@@ -1,0 +1,36 @@
+﻿@page "/"
+
+<SfTreeMap DataSource="Cars" TValue="Car" WeightValuePath="Count" ColorValuePath="Color"
+                             >
+    <TreeMapLeafItemSettings LabelPath="Name">
+      @*  <TreeMapLeafColorMappings>
+            <TreeMapLeafColorMapping LeafValue="Ford" Color='new string[]{ "green" }'></TreeMapLeafColorMapping>
+            <TreeMapLeafColorMapping LeafValue="Audi" Color='new string[]{ "red" }'></TreeMapLeafColorMapping>
+            <TreeMapLeafColorMapping LeafValue="Maruti" Color='new string[]{ "orange" }'
+                                     ShowLegend=false></TreeMapLeafColorMapping>
+        </TreeMapLeafColorMappings>*@
+    </TreeMapLeafItemSettings>
+    <TreeMapLegendSettings Visible=true Position="LegendPosition.Top" 
+                           ShowLegendPath="Visibility"
+                           RemoveDuplicateLegend=true
+                           ValuePath="Brand" Height="50px" Width="200px"></TreeMapLegendSettings>
+ </SfTreeMap>
+
+@code {
+    public class Car
+    {
+        public string Name { get; set; }
+        public string Brand { get; set; }
+        public int Count { get; set; }
+        public bool Visibility { get; set; }
+        public string Color { get; set; }
+    };
+    public List<Car> Cars = new List<Car> {
+       new Car { Name="Mustang", Brand="Ford", Count=232, Visibility=true, Color="#eee8aa"},
+        new Car { Name="EcoSport", Brand="Ford", Count=121, Visibility=true, Color="#eee8aa"},
+        new Car { Name="Swift", Brand="Maruti", Count=143, Visibility=false, Color="#daa520"},
+        new Car { Name="Baleno", Brand="Maruti", Count=454, Visibility=false, Color="#daa520"},
+        new Car { Name="Vitara Brezza", Brand="Maruti", Count=545, Visibility=true, Color="#e6be8a"},
+        new Car { Name="A3 Cabriolet", Brand="Audi", Count=123, Visibility=true, Color="#e6be8a"}
+    };
+}

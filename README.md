@@ -1,18 +1,66 @@
 # How to Customize Legends in the Blazor TreeMap Component
 
-A quick start Blazor project that shows how to customize  legends in the Blazor TreeMap Component. It includes a code snippet for enabling the interactive legend, customizing the position, alignment, and dimensions of the legends. It also includes a code snippet for setting legends visibility, color, text from the data source. 
- 
-Refer to the following documentation to learn about the Blazor TreeMap component: 
-https://blazor.syncfusion.com/documentation/treemap/legend
+## Overview
 
-Check out this online example of the Blazor TreeMap Component:
-https://blazor.syncfusion.com/demos/treemap/legend?theme=fluent
+This sample demonstrates how to customize legends in the Syncfusion [Blazor TreeMap](https://www.syncfusion.com/blazor-components/blazor-treemap) component. The implementation binds a collection of car data to a TreeMap and configures legends using data driven settings to control visibility, grouping, appearance, and layout.
 
-Watch the following video to get started with a Blazor Web Assembly app and add Syncfusion Blazor components to it:
-https://www.youtube.com/watch?v=zKU580cOqjg
+The sample shows how legend entries can be generated from a data field, how duplicate legend items can be removed, and how individual records can control legend participation. This approach helps create cleaner and more meaningful visualizations when displaying categorized hierarchical data.
 
-## Project prerequisites
-Make sure that you have the compatible versions of [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/ ) and [.NET Core SDK 7.0](https://dotnet.microsoft.com/en-us/download/dotnet/7.0) or later version in your machine before starting to work on this project.
+## Key Features
 
-## How to run this application
-To run this application, you need to first clone the `how-to-customize-the-legends-in-the-blazor-treemap-component` repository and then open it in Visual Studio 2022. Now, simply build and run your project to view the output.
+- Uses `SfTreeMap` with a strongly typed `Car` data source.
+- Configures `WeightValuePath="Count"` to determine the size of TreeMap items.
+- Uses `ColorValuePath="Color"` to apply colors from the underlying data source.
+- Uses `TreeMapLeafItemSettings` with `LabelPath="Name"` to display labels for leaf items.
+- Enables legend rendering through `TreeMapLegendSettings Visible="true"`.
+- Sets legend position using `Position="LegendPosition.Top"`.
+- Uses `ShowLegendPath="Visibility"` to control whether legend entries are displayed based on individual data records.
+- Uses `ValuePath="Brand"` to generate legend text from the data source.
+- Uses `RemoveDuplicateLegend="true"` to avoid repeated legend entries for identical brands.
+- Customizes legend size using `Height` and `Width`.
+- Demonstrates data-driven legend colors through the `Color` property in the data model.
+- Uses a custom `Car` model containing `Name`, `Brand`, `Count`, `Visibility`, and `Color` properties.
+
+## Prerequisites
+
+- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
+- [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet) compatible with the project's target framework
+
+## How to Run the Project
+
+**Visual Studio 2022**
+
+1. Clone this repository.
+2. Open the repository folder in Visual Studio 2022.
+3. Restore NuGet packages.
+4. Set the Blazor WebAssembly project as the startup project if required.
+5. Build the project.
+6. Run the application using **Ctrl+F5**.
+
+**Visual Studio Code**
+
+1. Clone this repository.
+2. Open the repository folder in Visual Studio Code.
+3. Open the integrated terminal.
+4. Navigate to the project directory.
+
+```bash
+dotnet restore
+dotnet run
+```
+
+5. Open the local application URL displayed in the terminal after the application starts.
+
+## Project Structure
+
+- `Pages/Index.razor` — Main sample page that hosts the `SfTreeMap` component and demonstrates legend customization using `TreeMapLegendSettings`.
+
+## Support and Feedback
+
+- For general product questions, visit the [Syncfusion Community Forum](https://www.syncfusion.com/forums) or [Syncfusion Support](https://www.syncfusion.com/support).
+- To report an issue specific to this sample, open a GitHub issue in this repository.
+- For implementation details, see the [relevant official Syncfusion documentation](https://help.syncfusion.com/chart-sdk/blazor/treemap/legend)
+
+## License
+
+This is a Syncfusion sample project provided to demonstrate product usage. Review the [Syncfusion license terms](https://www.syncfusion.com/sales/pricing?category=ui-components) before using Syncfusion components in your own applications.
